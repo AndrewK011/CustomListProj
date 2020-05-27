@@ -162,7 +162,64 @@ namespace UnitTestProject
 
             Assert.AreEqual(expected, actual);
         }
-        
-        
+        [TestMethod]
+        public void Remove_IntNotInList_ReturnFalse()
+        {
+            CustomList<int> list = new CustomList<int>();
+
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Add(4);
+            list.Add(5);
+
+            
+
+            bool expected = false;
+            bool actual = list.Remove(6); 
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Remove_IntInList_ReturnTrue()
+        {
+            CustomList<int> list = new CustomList<int>();
+
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Add(4);
+            list.Add(5);
+
+            
+
+            bool expected = true;
+            bool actual = list.Remove(4); 
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Remove_StringFromList_ThirdIndexNowInSecond()
+        {
+            CustomList<string> list = new CustomList<string>();
+
+            string value1 = "This is a string.";
+            string value2 = "This is also a string.";
+            string value3 = "Is this a string?";
+
+            string expected = "Is this a string?";
+            string actual;
+
+            list.Add(value1);
+            list.Add(value2);
+            list.Add(value3);
+            list.Remove(value2);
+
+            actual = list[1];
+
+            Assert.AreEqual(expected, actual);
+        }
+
+
     }
 }

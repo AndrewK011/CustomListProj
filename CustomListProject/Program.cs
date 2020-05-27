@@ -11,7 +11,8 @@ namespace CustomListProject
         static void Main(string[] args)
         {
             List<int> myList = new List<int>();
-
+            myList.Add(2);
+            myList.Remove(3);
         }
     }
 }

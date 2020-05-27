@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -63,17 +64,37 @@ namespace CustomListProject
             // copy values over to new array
         }
 
-        public void Remove(T item)
-        {         
+        public bool Remove(T item)
+        {
+            bool itemIsInList = false;
             for (int i = 0; i < Count; i++)
             {
-                if(items[i].Equals(item))
+                if (items[i].Equals(item))
                 {
+                    itemIsInList = true;
+                    tempItems = new T[Capacity];
+                    int k = 0;
+                    for (int j = 0; j < Count; j++)
+                    {
+                        if (j == i)
+                        {
+                            j++;
+                        }
 
+                        tempItems[k] = items[j];
+
+                        k++;
+                    }
+                    
                     Count--;
                     break;
+
                 }
+                
             }
+            items = tempItems;
+            return itemIsInList;
         }
+        
     }
 }
