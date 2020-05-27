@@ -29,11 +29,23 @@ namespace CustomListProject
         {
             get
             {
+                if(i < Capacity && i >= 0)
+                {
                 return items[i];
+
+                }
+                else
+                {
+                    return items[0];
+                }
             }
             set
             {
+                if(i < Capacity && i >= 0)
+                {
                 items[i] = value;
+
+                }
             }
             
         }

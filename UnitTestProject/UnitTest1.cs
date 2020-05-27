@@ -220,6 +220,29 @@ namespace UnitTestProject
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        public void ToString_StringFromList_ThirdIndexNowInSecond()
+        {
+            CustomList<string> list = new CustomList<string>();
+
+            string value1 = "This is a string.";
+            string value2 = "This is also a string.";
+            string value3 = "Is this a string?";
+
+            string expected = "Is this a string?";
+            string actual;
+
+            list.Add(value1);
+            list.Add(value2);
+            list.Add(value3);
+            list.Remove(value2);
+
+            actual = list[1];
+
+            Assert.AreEqual(expected, actual);
+        }
+
+
 
     }
 }
