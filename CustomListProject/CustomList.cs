@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
@@ -9,8 +10,9 @@ using System.Threading.Tasks;
 
 namespace CustomListProject
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable
     {
+        
         private T[] items;
         private T[] tempItems;
         private int count;
@@ -29,7 +31,7 @@ namespace CustomListProject
         {
             get
             {
-                if(i < Capacity && i >= 0)
+                if(i < Count && i >= 0)
                 {
                 return items[i];
 
@@ -41,7 +43,7 @@ namespace CustomListProject
             }
             set
             {
-                if(i < Capacity && i >= 0)
+                if(i < Count && i >= 0)
                 {
                 items[i] = value;
 
@@ -107,6 +109,54 @@ namespace CustomListProject
             items = tempItems;
             return itemIsInList;
         }
+        public override string ToString()
+        {
+            //string stringToReturn = "";
+            //CustomList<string> stringList = new CustomList<string>();
+
+
+            //for (int i = 0; i < Count; i++)
+            //{
+
+            //    stringList.Add(items[i]);
+                
+            //}
+
+            
+            //return stringToReturn;
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            
+            for (int i = 0; i < Count; i++)
+            {
+                yield return items[i];
+            }
+        }
+
+        public static CustomList<T> operator+(CustomList<T> first,CustomList<T> second)
+        {          
+            for (int i = 0; i < second.Count; i++)
+            {
+                first.Add(second[i]);
+            }
+            
+
+            return first;
+        }
+        //public static CustomList<T> operator-(CustomList<T> first,CustomList<T> second)
+        //{
+        //    CustomList<T> result = new CustomList<T>();
+
+        //    for (int i = 0; i < second.Count; i++)
+        //    {
+        //        first.Remove(second[i]);
+        //    }
+            
+
+        //    return first;
+        //}
         
     }
 }

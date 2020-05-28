@@ -10,9 +10,10 @@ namespace CustomListProject
     {
         static void Main(string[] args)
         {
-            List<int> myList = new List<int>();
-            myList.Add(2);
-            myList.Remove(3);
+           // List<int> myList = new List<int>();
+            //int[] myArray = new int[5];
+           // Console.WriteLine(myArray[0].ToString());
+           // Console.ReadLine();
         }
     }
 }
