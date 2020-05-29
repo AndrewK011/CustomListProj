@@ -1,0 +1,61 @@
+Removes the first occurrence of a specific object in CustomList<T> firstList for every
+matching object in CustomList<T> secondList.
+
+public static CustomList<T> operator+(CustomList<T> firstList,CustomList<T> secondList)
+
+Parameters:
+CustomList<T> firstList
+The initial list of objects that will be compared..
+CustomList<T> secondList
+The second list that will be compared against the first.
+
+Returns:
+CustomList<T>
+Returns the first list after having removed one object for every matching object in the second list.
+
+Example:
+
+using System;
+using System.Collections.Generic;
+
+public class Example
+	{
+		public void Test()
+		{
+			//Create new CustomList.
+			CustomList<int> firstList = new CustomList<int>(){ 1, 2, 3, 3};
+
+			//Create second CustomList.
+			CustomList<int> secondList = new CustomList<int>(){ 3, 4, 5, 5};
+
+			//Create CustomList to hold firstList after subtraction
+			CustomList<int> result = new CustomList<int>();
+
+			result = firstList - secondList;
+		
+			//result.ToString() = ("1 2 3 ");
+			//firstList.ToString() = ("1 2 3 ");
+			//secondList.ToString() = ("3 4 5 5 ");
+
+		}
+
+	public static CustomList<T> operator-(CustomList<T> first, CustomList<T> second)
+        {
+            //Starting with the first index of the second list.
+            for (int i = 0; i < second.Count; i++)
+            {
+		//Starting with the first index of the first list.
+                for (int j = 0; j < first.Count; j++)
+                {
+
+		//If a match is found between the first and second list, remove that object from the first list
+		//and continue until every index in one list has been checked with every index in the second.
+                    if(first[j].Equals(second[i]))
+                    {
+                        first.Remove(second[i]);
+                        break;
+                    }
+                }
+            }
+            return first;
+        }

@@ -20,13 +20,15 @@ namespace CustomListProject
         public int Count { get { return count; } set { count = value; } }
         public int Capacity { get { return capacity; } set { capacity = value; } }
 
+
+
         public CustomList()
         {
             capacity = 4;
             count = 0;
             items = new T[capacity];
         }
-
+     
         public T this[int i]
         {
             get
@@ -51,7 +53,7 @@ namespace CustomListProject
             }
             
         }
-       
+
 
         public void Add(T item)
         {
@@ -65,17 +67,12 @@ namespace CustomListProject
                     tempItems[i] = items[i];
                 }
 
-                items = tempItems;          
+                items = tempItems;
 
             }
-          
-                items[Count] = item;
-                Count++;
-          
-            // inserting into the array
-            //if count and capacity are equal
-            //then increase capacity
-            // copy values over to new array
+
+            items[Count] = item;
+            Count++;
         }
 
         public bool Remove(T item)
@@ -111,7 +108,7 @@ namespace CustomListProject
         }
         public override string ToString()
         {
-            string stringToReturn = null;
+            string stringToReturn = "";
 
 
             for (int i = 0; i < Count; i++)
@@ -147,8 +144,6 @@ namespace CustomListProject
         }
         public static CustomList<T> operator-(CustomList<T> first, CustomList<T> second)
         {
-            CustomList<T> result = new CustomList<T>();
-
             for (int i = 0; i < second.Count; i++)
             {
                 for (int j = 0; j < first.Count; j++)
@@ -158,13 +153,45 @@ namespace CustomListProject
                         first.Remove(second[i]);
                         break;
                     }
-
                 }
             }
-
-
             return first;
         }
+        public CustomList<T> ZipLists(CustomList<T> secondList)
+        {
+            CustomList<T> result = new CustomList<T>();
+            switch (Count > secondList.Count)
+            {
+                case true:
+                    for (int i = 0; i < Count; i++)
+                    {
+                        result.Add(items[i]);
+                        if (i < secondList.Count)
+                        {
+                            result.Add(secondList[i]);
+
+                        }
+                    }
+                    break;
+                case false:
+                    for (int i = 0; i < secondList.Count; i++)
+                    {
+                        if (i < Count)
+                        {
+                            result.Add(items[i]);
+
+                        }
+                        result.Add(secondList[i]);
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            return result;
+        }
+
+
 
     }
 }

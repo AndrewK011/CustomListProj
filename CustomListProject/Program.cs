@@ -10,11 +10,10 @@ namespace CustomListProject
     {
         static void Main(string[] args)
         {
-           // List<int> myList = new List<int>();
-            //int[] myArray = new int[5];
+            
            
             Console.WriteLine();
-           // Console.ReadLine();
+            Console.ReadLine();
         }
     }
 }
