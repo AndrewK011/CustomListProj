@@ -12,7 +12,8 @@ namespace CustomListProject
         {
            // List<int> myList = new List<int>();
             //int[] myArray = new int[5];
-           // Console.WriteLine(myArray[0].ToString());
+           
+            Console.WriteLine();
            // Console.ReadLine();
         }
     }

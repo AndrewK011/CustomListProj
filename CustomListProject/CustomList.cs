@@ -111,19 +111,19 @@ namespace CustomListProject
         }
         public override string ToString()
         {
-            //string stringToReturn = "";
-            //CustomList<string> stringList = new CustomList<string>();
+            string stringToReturn = null;
 
 
-            //for (int i = 0; i < Count; i++)
-            //{
-
-            //    stringList.Add(items[i]);
+            for (int i = 0; i < Count; i++)
+            {
+                stringToReturn += items[i];
                 
-            //}
+                stringToReturn += " ";
 
-            
-            //return stringToReturn;
+            }
+
+
+            return stringToReturn;
         }
 
         public IEnumerator GetEnumerator()
@@ -145,18 +145,26 @@ namespace CustomListProject
 
             return first;
         }
-        //public static CustomList<T> operator-(CustomList<T> first,CustomList<T> second)
-        //{
-        //    CustomList<T> result = new CustomList<T>();
+        public static CustomList<T> operator-(CustomList<T> first, CustomList<T> second)
+        {
+            CustomList<T> result = new CustomList<T>();
 
-        //    for (int i = 0; i < second.Count; i++)
-        //    {
-        //        first.Remove(second[i]);
-        //    }
-            
+            for (int i = 0; i < second.Count; i++)
+            {
+                for (int j = 0; j < first.Count; j++)
+                {
+                    if(first[j].Equals(second[i]))
+                    {
+                        first.Remove(second[i]);
+                        break;
+                    }
 
-        //    return first;
-        //}
-        
+                }
+            }
+
+
+            return first;
+        }
+
     }
 }

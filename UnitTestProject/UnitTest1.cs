@@ -296,9 +296,9 @@ namespace UnitTestProject
             list.Add(value2);
             list.Add(value3);
             list.Add(value4);
-            string expected = "False ";
-
-            string actual = list[1].ToString();;
+            string expected = "True";
+            string actual = "";
+            actual = list[3].ToString();
 
             Assert.AreEqual(expected, actual);
         }
@@ -309,7 +309,7 @@ namespace UnitTestProject
             CustomList<int> list = new CustomList<int>();
 
 
-            string expected = "0 ";
+            string expected = "0";
 
             string actual = list[0].ToString();
 
@@ -395,7 +395,7 @@ namespace UnitTestProject
         }
 
         [TestMethod]
-        public void Plus_ReturnNewCount()
+        public void Plus_TwoLists_ReturnNewCapacity()
         {
             CustomList<int> list = new CustomList<int>();
             CustomList<int> secondList = new CustomList<int>();
@@ -413,9 +413,59 @@ namespace UnitTestProject
 
             CustomList<int> resultList = list + secondList;
 
-            int expected = 10;
+            int expected = 16;
             
-            int actual = resultList.Count;
+            int actual = resultList.Capacity;
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Minus_ReturnNewCount()
+        {
+            CustomList<int> list = new CustomList<int>();
+            CustomList<int> secondList = new CustomList<int>();
+
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Add(4);
+            list.Add(5);
+            secondList.Add(1);
+            secondList.Add(2);
+            secondList.Add(3);
+            secondList.Add(4);
+            secondList.Add(10);
+
+            CustomList<int> resultList = list - secondList;
+
+            string expected = "5 ";
+
+            string actual = resultList.ToString();
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Minus_TwoLists_ReturnNewCount()
+        {
+            CustomList<int> list = new CustomList<int>();
+            CustomList<int> secondList = new CustomList<int>();
+
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Add(4);
+            list.Add(5);
+            secondList.Add(1);
+            secondList.Add(2);
+            secondList.Add(3);
+            secondList.Add(4);
+            secondList.Add(5);
+
+            CustomList<int> resultList = list - secondList;
+
+            string expected = null;
+
+            string actual = resultList.ToString();
 
             Assert.AreEqual(expected, actual);
         }
