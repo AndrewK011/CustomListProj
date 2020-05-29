@@ -382,19 +382,8 @@ namespace UnitTestProject
         [TestMethod]
         public void ZipLists_TwoLists2_ReturnNewList()
         {
-            CustomList<int> list = new CustomList<int>();
-            CustomList<int> secondList = new CustomList<int>();
-
-            list.Add(-1);
-            list.Add(-2);
-            list.Add(-3);
-            list.Add(-4);
-            list.Add(-5);
-            secondList.Add(6);
-            secondList.Add(7);
-            secondList.Add(8);
-            secondList.Add(9);
-            secondList.Add(10);
+            CustomList<int> list = new CustomList<int>() { -1, -2, -3, -4, -5 };
+            CustomList<int> secondList = new CustomList<int>() { 6, 7, 8, 9, 10 };
 
             CustomList<int> resultList = list.ZipLists(secondList);
 
@@ -407,19 +396,8 @@ namespace UnitTestProject
         [TestMethod]
         public void ZipLists_TwoLists_ReturnNewCount()
         {
-            CustomList<int> list = new CustomList<int>();
-            CustomList<int> secondList = new CustomList<int>();
-
-            list.Add(-1);
-            list.Add(-2);
-            list.Add(-3);
-            list.Add(-4);
-            list.Add(-5);
-            secondList.Add(6);
-            secondList.Add(7);
-            secondList.Add(8);
-            secondList.Add(9);
-            secondList.Add(10);
+            CustomList<int> list = new CustomList<int>() { -1, -2, -3, -4, -5 };
+            CustomList<int> secondList = new CustomList<int>() { 6, 7, 8, 9, 10 };
 
             CustomList<int> resultList = list.ZipLists(secondList);
 
@@ -432,19 +410,8 @@ namespace UnitTestProject
         [TestMethod]
         public void ZipLists_TwoDoubleLists_ReturnNewList()
         {
-            CustomList<double> list = new CustomList<double>();
-            CustomList<double> secondList = new CustomList<double>();
-
-            list.Add(1.03);
-            list.Add(20.12);
-            list.Add(312.3);
-            list.Add(40.32);
-            list.Add(5.3);
-            secondList.Add(6.956);
-            secondList.Add(77.5);
-            secondList.Add(8.85);
-            secondList.Add(9.2);
-            secondList.Add(10.99);
+            CustomList<double> list = new CustomList<double>() { 1.03, 20.12, 312.3, 40.32, 5.3 };
+            CustomList<double> secondList = new CustomList<double>() { 6.956, 77.5, 8.85, 9.2, 10.99 };
 
             CustomList<double> resultList = list.ZipLists(secondList);
 
