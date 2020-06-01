@@ -133,13 +133,23 @@ namespace CustomListProject
         }
 
         public static CustomList<T> operator+(CustomList<T> first,CustomList<T> second)
-        {          
+        {
+            CustomList<T> tempItems = new CustomList<T>();
+
+            foreach(T item in first)
+            {
+                tempItems.Add(item);
+            }
+            foreach(T item in second)
+            {
+                tempItems.Add(item);
+            }
+
+
             for (int i = 0; i < second.Count; i++)
             {
                 first.Add(second[i]);
             }
-            
-
             return first;
         }
         public static CustomList<T> operator-(CustomList<T> first, CustomList<T> second)
@@ -190,8 +200,6 @@ namespace CustomListProject
 
             return result;
         }
-
-
 
     }
 }

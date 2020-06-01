@@ -11,9 +11,6 @@ namespace CustomListProject
         static void Main(string[] args)
         {
             
-           
-            Console.WriteLine();
-            Console.ReadLine();
         }
     }
 }

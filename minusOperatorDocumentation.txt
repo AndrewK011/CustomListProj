@@ -22,10 +22,10 @@ public class Example
 	{
 		public void Test()
 		{
-			//Create new CustomList.
+			//Create new CustomList and populate list with values 1, 2, 3, 3.
 			CustomList<int> firstList = new CustomList<int>(){ 1, 2, 3, 3};
 
-			//Create second CustomList.
+			//Create second CustomList and populate list with values 3, 4, 5, 5.
 			CustomList<int> secondList = new CustomList<int>(){ 3, 4, 5, 5};
 
 			//Create CustomList to hold firstList after subtraction
